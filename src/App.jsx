@@ -14,6 +14,9 @@ import Portfolio from "./Components/Portfolio";
 
 import "./styles.css";
 
+const primaryColor = "rgba(211, 120, 67, 0.75)";
+const secondaryColor = "rgba(95, 64, 46, 0.8)";
+
 /**
  * This object represents your information. The project is set so that you
  * only need to update these here, and values are passed a properties to the
@@ -23,29 +26,78 @@ import "./styles.css";
  *
  * If you don't have one of the social sites listed, leave it as an empty string.
  */
-const siteProps = {
-  name: "Alexandrie Grenier",
-  title: "Web Designer & Content Creator",
-  email: "alex@example.com",
-  gitHub: "microsoft",
-  instagram: "microsoft",
-  linkedIn: "satyanadella",
-  medium: "",
-  twitter: "microsoft",
-  youTube: "Code",
-};
-
-const primaryColor = "#4E567E";
-const secondaryColor = "#D2F1E4";
 
 const App = () => {
+  const siteData = {
+    name: "Dalton Schmidt",
+    title: "Data Scientist & Machine Learning Engineer",
+    description: "I'm a Data Analyst who originally studied Marine Science. My passion for understanding the world has motivated me to pursuing a career in Data Analytics. I am always eager to learn, and am always looking for new challenges. I believe that data has the power to change the world, and I am excited to be a part of that change.",
+    skills: [
+      "Data Analysis & Visualization",
+      "Python & R Languages/Libraries",
+      "SQL & Power BI",
+      "JavaScript & Web Development",
+      "Neural Networks",
+      "Machine Learning & AI",
+    ],
+    projects: [
+      {
+        title: "Heat Hypothesis: A Data Science Case Study",
+        description: "Utilized New York City crime data to analyze the relationship between temperature and crime rates.",
+        url: "https://github.com/Sharkb8t/Heat_Hypothesis_Case_Study_NY",
+        image: "orange-thermostat.jpg",
+        skills: ["JavaScript", "Python", "SQL", "Jupyter Notebook","Leaflet"],
+      },
+      {
+        title: "Credit Risk Analysis",
+        description: "Utilized bank records to train and test a machine learning model to predict credit risk for future loan applicants.",
+        url: "https://github.com/Sharkb8t/Credit_Risk_Analysis_MLM",
+        image: "credit-card.jpg",
+        skills: ["Python", "Jupyter Notebook", "Tableu", "MLM"],
+      },
+      {
+        title: "Crypto Clustering: Is it a Good Investment?",
+        description: "Utilized unsupervised machine learning techniques to analyze cryptocurrency market data. Using K-Means clustering, I grouped cryptocurrencies based on their 24-hour and 7-day price changes.",
+        url: "https://github.com/Sharkb8t/CryptoClustering",
+        image: "crypto-track.jpg",
+        skills: ["Python", "Jupyter Notebook", "Unsupervised Learning", "PCA", "K-Means"],
+      },
+      {
+        title: "Success Rate of Startups",
+        description: "Through data transformation and analysis, I was able to describe the success rate of startups based on their funding and industry type.",
+        url: "https://github.com/Sharkb8t/Crowdfunding_ETL",
+        image: "start-up.jpg",
+        skills: ["SQL", "Python", "Pandas", "Jupyter Notebook"],
+      },
+    ],
+    socialLinks: {
+      email: "daltonaschmidt@gmail.com",
+      gitHub: "https://github.com/Sharkb8t",
+      linkedIn: "https://linkedin.com/in/dalton-a-schmidt",
+      kaggle: "https://www.kaggle.com/daltonschmidt",
+      bluesky: "https://bsky.app/profile/daltonaschmidt.bsky.social",
+      instagram: "",
+      medium: "",
+      youTube: "https://www.youtube.com/@DaltonASchmidt",
+      microsoft: "",
+      twitter: "",
+    }
+  };
+  
   return (
     <div id="main">
       <Header />
-      <Home name={siteProps.name} title={siteProps.title} />
-      <About />
-      <Portfolio />
-      <Footer {...siteProps} primaryColor={primaryColor} secondaryColor={secondaryColor} />
+      <Home name={siteData.name} title={siteData.title} />
+      <About 
+        description={siteData.description}
+        skillsList={siteData.skills}
+        detailOrQuote="'The mystery of life isn't a problem to solve, but a reality to experience.' - Frank Herbert (God Emperor of Dune)"
+      />
+      <Portfolio projects={siteData.projects} />
+      <Footer 
+        socialLinks={siteData.socialLinks} 
+        name={siteData.name} 
+      />
     </div>
   );
 };

@@ -8,24 +8,15 @@ import React from "react";
 
 const Header = () => {
   return (
-    <div
-      style={{
-        position: "fixed",
-        display: "flex",
-        justifyContent: "center",
-        gap: "2rem",
-        background: "rgba(255,255,255,0.75)",
-        padding: "1rem",
-        top: 0,
-        width: "100%",
-        zIndex: 10,
-      }}
-    >
+    <header>
       <a href="#home">Home</a>
+      <span className="nav-divider"></span>
       <a href="#about">About</a>
+      <span className="nav-divider"></span>
       <a href="#portfolio">Portfolio</a>
+      <span className="nav-divider"></span>
       <a href="#footer">Contact</a>
-    </div>
+    </header>
   );
 };
 
